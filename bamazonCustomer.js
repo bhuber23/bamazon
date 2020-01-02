@@ -33,7 +33,7 @@ function start() {
         inquirer.prompt([
             {
                 name: "buy",
-                type: "rawlist",
+                type: "list",
                 message: "What item would you like to buy?",
                 choices: function () {
                     var choiceArray = [];
