@@ -23,7 +23,7 @@ The Add New Product feature allows managers the option to add new items to the s
 
 A full video of the entire app demonstration can be found in the images file within the repo.
 
-## Technologies/NPMS Used
+## Technologies/NPM's Used
 - Node.js
 - Javascript
 - MySQL
