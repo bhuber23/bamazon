@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var { table } = require("table");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -19,10 +20,11 @@ function displayProducts() {
     connection.query(query, function (err, res) {
         if (err) throw err;
         console.log("Here is the existing inventory");
+        var products = [["Item ID", "Product Name", "Price($)"]];
         for (var i = 0; i < res.length; i++) {
-            console.log("Item ID: " + res[i].item_id + " || Product: " + res[i].product_name + " || Price: " + res[i].price)
-            console.log("\n--------------------------------\n");
+            products.push([res[i].item_id, res[i].product_name, res[i].price])
         }
+        console.log(table(products));
         start();
     })
 }
