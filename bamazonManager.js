@@ -32,10 +32,10 @@ function start() {
             else if (answer.options === "Add to Inventory") {
                 addInventory();
             }
-            else if (answer.options === "Add New Product"){
+            else if (answer.options === "Add New Product") {
                 addProduct();
             }
-            else {connection.end()};
+            else { connection.end() };
         });
 }
 
@@ -93,7 +93,7 @@ function addInventory() {
                 type: "number",
                 message: "How many would you like to add?"
             }
-        ]).then(function(answer){
+        ]).then(function (answer) {
             var itemID = answer.inventory.substr(0, answer.inventory.indexOf(":"));
             var quantityAdded = answer.amount_added;
 
@@ -102,17 +102,18 @@ function addInventory() {
                 if (err) throw err;
                 var itemChosen = res[0];
                 var updateInventory = "UPDATE products SET stock_quantity = " + (itemChosen.stock_quantity + quantityAdded) + " WHERE item_id = " + itemID;
-                connection.query(updateInventory, function(err, res){
+                connection.query(updateInventory, function (err, res) {
                     console.log("The item's inventory has been updated to " + (itemChosen.stock_quantity + quantityAdded));
                     start();
                 });
-            
-            }
-        )
-    });
-})};
 
-function addProduct(){
+            }
+            )
+        });
+    })
+};
+
+function addProduct() {
     inquirer.prompt([
         {
             name: "new_prod",
@@ -134,21 +135,21 @@ function addProduct(){
             type: "number",
             message: "How many of this item are you adding?"
         }
-    ]).then(function(answer){
+    ]).then(function (answer) {
         var productName = answer.new_prod;
         var departmentName = answer.department;
         var unitPrice = answer.price;
         var stock = answer.stock;
         var query = "INSERT INTO products SET ?";
-        connection.query(query, {product_name: productName, department_name: departmentName, price: unitPrice, stock_quantity: stock}, function(err, res){
+        connection.query(query, { product_name: productName, department_name: departmentName, price: unitPrice, stock_quantity: stock }, function (err, res) {
             if (err) throw err;
             console.log(productName + " has been added to the store inventory");
             console.log("\n------------------------------------\n");
         });
-        var updateInventory = "UPDATE products SET stock_quanity = " + stock + " WHERE product_name = " + productName;
-        connection.query(updateInventory, function(err, res){
+        var updateInventory = "UPDATE products SET stock_quantity = " + stock + " WHERE product_name = " + productName;
+        connection.query(updateInventory, function (err, res) {
             console.log("Your store's inventory has been updated: ");
-            connection.query("SELECT * FROM products", function(err, res){
+            connection.query("SELECT * FROM products", function (err, res) {
                 if (err) throw err;
                 var products = [["Item ID", "Product Name", "Department", "Price", "Quantity"]];
                 for (var i = 0; i < res.length; i++) {
@@ -157,7 +158,7 @@ function addProduct(){
                 console.log(table(products));
                 start();
             });
-           
+
         });
     });
 }

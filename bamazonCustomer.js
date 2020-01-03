@@ -64,7 +64,7 @@ function start() {
                         var updateQuery = "UPDATE products SET stock_quantity = " + (itemChosen.stock_quantity - quantityNeeded) + " WHERE item_id = " + itemID;
                         connection.query(updateQuery, function (err, res) {
                             if (err) throw err;
-                            console.log("Thank you for your order! Your total is $" + itemChosen.price * quantityNeeded);
+                            console.log("Thank you for your order! Your total is $" + (itemChosen.price * quantityNeeded).toFixed(2));
                             console.log("\n--------------------------------\n");
                             buyAgain();
                         });
