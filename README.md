@@ -1,7 +1,14 @@
 # bamazon
 The "bamazon" app is a console-based Node app using MySQL, which creates a store-like environment similar to Amazon. The customer facing app will allow customers to view a list of items available to purchase, allow them to choose the item they which to buy along with the quantity. After they choose, they will get their order total and can then shop again. If they choose a quantity that the store cannot fulfill, they will receive a message notifying them of that and will automatically prompt them to modify their order.
 
-There is a manager facing app, as well, which allows the manager to view the total list of inventory, to view the items with low inventory, to replenish stock, and to add new items to the list. 
+There is a manager facing app, as well, which allows the manager to view the total list of inventory, to view the items with low inventory, to replenish stock, and to add new items to the database.
+
+## Technologies/NPM's Used
+- Node.js
+- Javascript
+- MySQL
+- Table NPM
+- Inquirer NPM
 
 ## How to Use
 The bamazon customer app starts by using the command "node bamazonCustomer.js." The customer automatically receives a table of the inventory that's available (stored in a MySQL database) and then asks them which item they would like to buy using Inquirer. They can select their item from the list and are then asked how many they'd like to purchase. 
@@ -21,12 +28,7 @@ If the manager wants to replenish stock quantities, they would choose Add to Inv
 The Add New Product feature allows managers the option to add new items to the store. They will be asked for the name of the product, the department, the price, and how many they are adding. After they have added that, the table updates to show the store's updated list of inventory.
 ![Example new product](images/new-prod.gif)
 
-A full video of the entire app demonstration can be found in the images file within the repo.
+A full video of the entire app demonstration can be found in the images file within the repo under "full-app.mov."
 
-## Technologies/NPM's Used
-- Node.js
-- Javascript
-- MySQL
-- Table NPM
-- Inquirer
+
 
