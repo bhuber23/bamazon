@@ -28,7 +28,7 @@ If the manager wants to replenish stock quantities, they would choose Add to Inv
 The Add New Product feature allows managers the option to add new items to the store. They will be asked for the name of the product, the department, the price, and how many they are adding. After they have added that, the table updates to show the store's updated list of inventory.
 ![Example new product](images/new-prod.gif)
 
-A full video of the entire app demonstration can be found in the images file within the repo under "full-app.mov."
+A full video of the entire app demonstration can be downloaded from the images file within the repo under "full-app.mov" or it can be viewed [here](https://drive.google.com/open?id=10dOoW3vznJ99jh5p3v2P3qTFQwM7qNo_).
 
 
 
